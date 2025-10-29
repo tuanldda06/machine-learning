@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import time
 
 np.random.seed(14)
-m = 100000000
+m = 1000000000
 X = np.random.randint(150 ,201, size = (m,1)).astype(float)# viết thành cột sẵn rồi không cần T
 y =0.55 * X -25 + np.random.randn(m, 1) * 8
 
