@@ -19,6 +19,10 @@ for i in range(epoach) :
 
 w_0 , w_1 = w[0,0] , w[1,0] # do ket qua la mang 2 chieu
 
+X_test = np.array([[162],[169], [178], [184], [187],[190]])
+y_pred = w_0 + w_1 * X_test
+plt.scatter(X_test, y_pred, color='green', label='Dự đoán mới')
+
 plt.scatter(X , y , color = 'blue' , label = 'Du lieu that')
 x_line = np.array([[X.min()] , [X.max()]])
 y_line = w_0 + w_1 * x_line

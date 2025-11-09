@@ -28,6 +28,9 @@ w_0, w_1 = w[0, 0], w[1, 0]
 print(f"w_0 (bias) = {w_0:.4f}")
 print(f"w_1 (slope) = {w_1:.6f}")
 
+X_test = np.array([[160],[165], [170], [180], [185],[190]])
+y_pred = w_0 + w_1 * X_test
+plt.scatter(X_test, y_pred, color='green', label='Dự đoán mới')
 
 plt.scatter(X, y, color='blue', label='Dữ liệu thực')
 x_line = np.array([[X.min()], [X.max()]])

@@ -2,9 +2,9 @@ import requests
 from bs4 import BeautifulSoup
 
 URLS = [
-    "https://tuanlda78202.github.io/",              # About
-    "https://tuanlda78202.github.io/repositories/", # Repositories
-    "https://tuanlda78202.github.io/cv/"            # CV
+    "https://tuanlda78202.github.io/",              
+    "https://tuanlda78202.github.io/repositories/", 
+    "https://tuanlda78202.github.io/cv/"            
 ]
 
 def fetch(url):
