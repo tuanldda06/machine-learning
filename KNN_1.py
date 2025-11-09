@@ -5,8 +5,8 @@ def euclid_distance(x1,x2):
     return np.sqrt(np.sum((x1-x2)**2))
 def knn_predict(x_train , y_train , x_test , k = 3):
     distance = []
-    for i in range(len(x_test)):
-        dist = euclid_distance(x_train , x_test[i])
+    for i in range(len(x_train)):
+        dist = euclid_distance(x_train[i] , x_test)
         distance.append((dist , y_train[i]))
     distance.sort(key=lambda x: x[0])# sắp xếp theo khoảng cách tăng dần
     neighbors = distance[:k]
