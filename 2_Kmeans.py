@@ -10,14 +10,14 @@ def kmeans_innit(X,K) :
 
 def kmeans_assign(X, centers):
     D = cdist(X, centers)
-    return np.argmin(D, axis=1) # trả về index gần nhất của cái tập K bên trên
+    return np.argmin(D, axis=1) #dùng axis=1 ở np.argmin vì ta cần lấy min theo từng hàng (mỗi hàng là một điểm), để tìm tâm gần nhất cho MỖI điểm .Còn axis = 0 thì nó so sánh theo cột của từng cái một với nhau , nên không đúng
 
 def kmeans_update_centroids(X,label , K ) :
     centers = np.zeros((K,X.shape[1])) #  khởi tạo tâm ban đầu sẽ là 1 tập rỗng bằng 0 , và có số chiều = số chiều của X , do có K cụm nên số hàng bằng số K luôn 
     for k in range(K) :
         Xk = X[label == k ,:]#Lấy tất cả điểm nằm trong cụm k → mỗi điểm gồm đầy đủ tọa độ (tức toàn bộ cột).
         if Xk.shape[0] > 0:
-            centers[k , :] = np.mean(Xk , axis = 0) # nghĩa là lấy trung bình của tất cả các điểm nằm trong cụm theo chiều cột , nghĩa là trung bình của tất cả phần từ cột x và trung bình của tất cả phần từ cột y
+            centers[k, :] = np.mean(Xk , axis = 0) # nghĩa là lấy trung bình của tất cả các điểm nằm trong cụm theo chiều cột , nghĩa là trung bình của tất cả phần từ cột x và trung bình của tất cả phần từ cột y
         else:
             centers[k, :] = X[np.random.randint(0, X.shape[0])]# nếu cụm rỗng, random lại tâm 
     return centers
@@ -43,7 +43,7 @@ X = np.r_[
     np.random.randn(1000,2) + [0,5],
     np.random.randn(1000,2) + [5,10],
 ]
-
+#np.random.randn(1000, 2) → 1000 điểm, mỗi điểm có 2 chiều (x, y).Ghép 4 cụm lại bằng np.r_ → tổng cộng 4000 điểm, vẫn chỉ 2 chiều
 K = 4
 center , label = main_kmeans(X,K)
 SEE = 0

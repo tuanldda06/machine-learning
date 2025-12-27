@@ -19,7 +19,7 @@ def kmeans_init(X,K) :
 
 def kmean_assign(X,center) :
     D = cdist(X,center) 
-    return np.argmin(D,axis=1)
+    return np.argmin(D,axis=1)#dùng axis=1 ở np.argmin vì ta cần lấy min theo từng hàng (mỗi hàng là một điểm), để tìm tâm gần nhất cho MỖI điểm .Còn axis = 0 thì nó so sánh theo cột của từng cái một với nhau , nên không đúng
 
 def kmeans_update(X,label ,K) :
     center = np.zeros((K,X.shape[1]))
